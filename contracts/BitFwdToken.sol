@@ -3,19 +3,17 @@ pragma solidity ^0.4.18;
 // ----------------------------------------------------------------------------
 // FWD 'BitFwd' token contract
 //
-// * FWD tokens are mintable by the owner until the `disableMinting()` function
-//   is executed
-// * FWD tokens can be burnt by being transferred to address 0x0
+// FWD tokens are mintable by the owner until the `disableMinting()` function
+// is executed. Tokens can be burnt by sending them to address 0x0
 //
-// Deployed to : 
+// Deployed to : 0xe199C41103020a325Ee17Fd87934dfe7Ac747AD4
 // Symbol      : FWD
 // Name        : BitFwd
 // Total supply: mintable
 // Decimals    : 18
 //
-// URL: http://www.bitfwd.xyz
-//
-// GitHub: 
+// http://www.bitfwd.xyz
+// https://github.com/bokkypoobah/Tokens/blob/master/contracts/BitFwdToken.sol
 //
 // Enjoy.
 //
@@ -111,9 +109,6 @@ contract Owned {
 contract BitFwdToken is ERC20Interface, Owned {
     using SafeMath for uint;
 
-    // ------------------------------------------------------------------------
-    // Token parameters
-    // ------------------------------------------------------------------------
     string public symbol;
     string public  name;
     uint8 public decimals;
@@ -123,13 +118,7 @@ contract BitFwdToken is ERC20Interface, Owned {
     mapping(address => uint) balances;
     mapping(address => mapping(address => uint)) allowed;
 
-
-    // ------------------------------------------------------------------------
-    // Events
-    // ------------------------------------------------------------------------
-    event MinterUpdated(address from, address to);
     event MintingDisabled();
-    event TransfersEnabled();
 
 
     // ------------------------------------------------------------------------
