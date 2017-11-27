@@ -1,6 +1,30 @@
 # BokkyPooBah's Token Repository
 
+A collection of token contracts, and how to deploy these contracts using Remix and MyEtherWallet.
+
+<br />
+
+<hr />
+
+## Table Of Contents
+
+* [BitFwd Token](#bitfwd-token)
+* [LEIA Save Princess Leia Peach Rainbow Vomit Cat ICO Token](#leia-save-princess-leia-peach-rainbow-vomit-cat-ico-token)
+* [SEANTest Token On Ropsten](#seantest-token-on-ropsten)
+* [How To Deploy Using Remix And MyEtherWallet Without Libraries](#how-to-deploy-using-remix-and-myetherwallet-without-libraries)
+* [How To Deploy Using Remix And MyEtherWallet With A Library](#how-to-deploy-using-remix-and-myetherwallet-with-library)
+* [Airdropping Tokens](#airdropping-tokens)
+* [Registering Your Token Contract](#registering-your-token-contract)
+* [References](#references)
+
+<br />
+
+<hr />
+
 ## BitFwd Token
+
+A token that is mintable by the owner, until the `disableMinting()` is executed. This token contract requires the *SafeMath* library
+to be deployed before deploying the main token contract.
 
 Deployed Nov 22 2017, and transferred ownership to 0x8f629ee1659E89958678F716a4f452B20fCbD8c5 .
 
@@ -13,8 +37,10 @@ Deployed Nov 22 2017, and transferred ownership to 0x8f629ee1659E89958678F716a4f
 
 ## LEIA Save Princess Leia Peach Rainbow Vomit Cat ICO Token
 
-* SafeMath library deployed to [0x7c9801326a2A8394e45dBAcC115c975381A693aE](https://etherscan.io/address/0x7c9801326a2A8394e45dBAcC115c975381A693aE)
+A crowdsale/token contract that generates 1,000 tokens per ETH received, but all contributed ETH is returned to the calling account immediately.
+This crowdsale/token contract requires the *SafeMath* library to be deployed before deploying the main crowdsale/token contract.
 
+* SafeMath library deployed to [0x7c9801326a2A8394e45dBAcC115c975381A693aE](https://etherscan.io/address/0x7c9801326a2A8394e45dBAcC115c975381A693aE)
 * [SavePrincessLeiaPeachRainbowVomitCatICOToken.sol](contracts/SavePrincessLeiaPeachRainbowVomitCatICOToken.sol) deployed to [0x96E2fFDdd5aaB73dEf197df5fDC4653a72976837](https://etherscan.io/address/0x96E2fFDdd5aaB73dEf197df5fDC4653a72976837)
 
 <br />
@@ -23,19 +49,22 @@ Deployed Nov 22 2017, and transferred ownership to 0x8f629ee1659E89958678F716a4f
 
 ## SEANTest Token On Ropsten
 
+A token contract that premines 100,000 tokens and assigns these tokens to a particular account. No library linking is required
+for this token contract as the `library SafeMath` has been converted to `contract SafeMath`.
+
 * [SeanTestToken.sol](contracts/SeanTestToken.sol) deployed to [0x4d61ca45e4c909f79be951210c34e5d6ed5f59cc](https://ropsten.etherscan.io/address/0x4d61ca45e4c909f79be951210c34e5d6ed5f59cc)
 
 <br />
 
 <hr />
 
-## How To Deploy Using Remix And MyEtherWallet Without Library
+## How To Deploy Using Remix And MyEtherWallet Without Libraries
 
 If deploying on Ropsten, select the Ropsten network in MEW, and use the Ropsten EtherScan
 
 * Compile code in Remix
   * Load code in [http://remix.ethereum.org/](http://remix.ethereum.org/)
-  * In the Compile tab, select the token contract
+  * In the Compile tab, select the token contract unit
   * Click on Details
   * Copy the Bytecode
 * Deploy using MyEtherWallet
@@ -56,7 +85,7 @@ If deploying on Ropsten, select the Ropsten network in MEW, and use the Ropsten 
 
 <hr />
 
-## How To Deploy Using Remix And MyEtherWallet With Library
+## How To Deploy Using Remix And MyEtherWallet With A Library
 
 * Perform the steps above initially for the SafeMath library unit
 * Perform the steps above for the token contract, but
@@ -72,6 +101,35 @@ If deploying on Ropsten, select the Ropsten network in MEW, and use the Ropsten 
 ## Airdropping Tokens
 
 A sample script is available in [scripts/airdropLEIA.sh](scripts/airdropLEIA.sh)
+
+<br />
+
+<hr />
+
+## Registering Your Token Contract
+
+The Parity registry is a do-it-yourself token registration. MEW and EtherScan requires someone to process your request, so restrict your
+request to more important tokens.
+
+* Parity (do-it-youself)
+  * [A Quick Look At Parity’s Token Registry Smart Contract](https://www.bokconsulting.com.au/blog/a-quick-look-at-paritys-token-registry-smart-contract/)
+  * [Adding an image to your token on Parity](https://medium.com/@Dave_Appleton/adding-an-image-to-your-token-on-parity-516fc8b51cab)
+* MyEtherWallet
+  * [How to Add a Custom Token to MyEtherWallet](https://myetherwallet.github.io/knowledge-base/send/adding-new-token-and-sending-custom-tokens.html)
+  * [Adding your Token as a Default Token](https://myetherwallet.github.io/knowledge-base/tokens/token-creators-add-your-token-to-myetherwallet.html)
+* EtherScan
+  * [How do I get listed on Etherscan's Token Marketcap list, https://etherscan.io/tokens?](https://etherscancom.freshdesk.com/support/solutions/articles/35000022151-how-do-i-get-listed-on-etherscan-s-token-marketcap-list-https-etherscan-io-tokens-)
+
+<br />
+
+<hr />
+
+## References
+
+* [Remix - Solidity IDE](http://remix.readthedocs.io/en/latest/)
+* [Solidity](http://solidity.readthedocs.io/en/latest/)
+* [Ethereum Smart Contract Security Best Practices](https://consensys.github.io/smart-contract-best-practices/)
+* [Ethereum.StackExchange.com](https://ethereum.stackexchange.com/)
 
 <br />
 
