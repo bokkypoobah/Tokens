@@ -18,20 +18,20 @@ pragma solidity ^0.4.18;
 // ----------------------------------------------------------------------------
 // Safe maths
 // ----------------------------------------------------------------------------
-library SafeMath {
-    function add(uint a, uint b) public pure returns (uint c) {
+contract SafeMath {
+    function safeAdd(uint a, uint b) public pure returns (uint c) {
         c = a + b;
         require(c >= a);
     }
-    function sub(uint a, uint b) public pure returns (uint c) {
+    function safeSub(uint a, uint b) public pure returns (uint c) {
         require(b <= a);
         c = a - b;
     }
-    function mul(uint a, uint b) public pure returns (uint c) {
+    function safeMul(uint a, uint b) public pure returns (uint c) {
         c = a * b;
         require(a == 0 || c / a == b);
     }
-    function div(uint a, uint b) public pure returns (uint c) {
+    function safeDiv(uint a, uint b) public pure returns (uint c) {
         require(b > 0);
         c = a / b;
     }
@@ -99,9 +99,7 @@ contract Owned {
 // ERC20 Token, with the addition of symbol, name and decimals and assisted
 // token transfers
 // ----------------------------------------------------------------------------
-contract SeanTestToken is ERC20Interface, Owned {
-    using SafeMath for uint;
-
+contract SeanTestToken is ERC20Interface, Owned, SafeMath {
     string public symbol;
     string public  name;
     uint8 public decimals;
@@ -145,8 +143,8 @@ contract SeanTestToken is ERC20Interface, Owned {
     // - 0 value transfers are allowed
     // ------------------------------------------------------------------------
     function transfer(address to, uint tokens) public returns (bool success) {
-        balances[msg.sender] = balances[msg.sender].sub(tokens);
-        balances[to] = balances[to].add(tokens);
+        balances[msg.sender] = safeSub(balances[msg.sender], tokens);
+        balances[to] = safeAdd(balances[to], tokens);
         Transfer(msg.sender, to, tokens);
         return true;
     }
@@ -177,9 +175,9 @@ contract SeanTestToken is ERC20Interface, Owned {
     // - 0 value transfers are allowed
     // ------------------------------------------------------------------------
     function transferFrom(address from, address to, uint tokens) public returns (bool success) {
-        balances[from] = balances[from].sub(tokens);
-        allowed[from][msg.sender] = allowed[from][msg.sender].sub(tokens);
-        balances[to] = balances[to].add(tokens);
+        balances[from] = safeSub(balances[from], tokens);
+        allowed[from][msg.sender] = safeSub(allowed[from][msg.sender], tokens);
+        balances[to] = safeAdd(balances[to], tokens);
         Transfer(from, to, tokens);
         return true;
     }
