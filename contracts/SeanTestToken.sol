@@ -3,7 +3,7 @@ pragma solidity ^0.4.18;
 // ----------------------------------------------------------------------------
 // 'SEANTest' 'Sean Test' token contract
 //
-// Deployed to : 0x18258d988bd35D97250d22b1A445c3591F8854Ff
+// Deployed to : 0x4D61cA45E4C909F79bE951210c34e5D6Ed5f59cC
 // Symbol      : SEANTest
 // Name        : Sean Test Token
 // Total supply: 100,000
@@ -117,7 +117,8 @@ contract SeanTestToken is ERC20Interface, Owned, SafeMath {
         name = "Sean Test";
         decimals = 0;
         _totalSupply = 100000;
-        Transfer(address(0), owner, _totalSupply);
+        balances[0xB077883bF6154C9a24538A580Bd0d2F905D85384] = _totalSupply;
+        Transfer(address(0), 0xB077883bF6154C9a24538A580Bd0d2F905D85384, _totalSupply);
     }
 
 
