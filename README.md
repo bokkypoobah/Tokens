@@ -11,6 +11,7 @@ A collection of token contracts, and how to deploy these contracts using Remix a
 * [BitFwd Token](#bitfwd-token)
 * [LEIA Save Princess Leia Peach Rainbow Vomit Cat ICO Token](#leia-save-princess-leia-peach-rainbow-vomit-cat-ico-token)
 * [SEANTest Token On Ropsten](#seantest-token-on-ropsten)
+* [Fixed Supply Token](#fixed-supply-token)
 * [My Token](#my-token)
 * [How To Deploy Using Remix And MyEtherWallet Without Libraries](#how-to-deploy-using-remix-and-myetherwallet-without-libraries)
 * [How To Deploy Using Remix And MyEtherWallet With A Library](#how-to-deploy-using-remix-and-myetherwallet-with-library)
@@ -54,6 +55,18 @@ A token contract that premines 100,000 tokens and assigns these tokens to a part
 for this token contract as the `library SafeMath` has been converted to `contract SafeMath`.
 
 * [SeanTestToken.sol](contracts/SeanTestToken.sol) deployed to [0x4d61ca45e4c909f79be951210c34e5d6ed5f59cc](https://ropsten.etherscan.io/address/0x4d61ca45e4c909f79be951210c34e5d6ed5f59cc)
+
+<br />
+
+<hr />
+
+## Fixed Supply Token
+
+A fixed supply token contract that allocates 1,000,000 FIXED tokens to the token contract owner on deployment. No library linking is required.
+
+* [FixedSupplyToken.sol](contracts/FixedSupplyToken.sol)
+
+See the instruction directly below to deploy this contract to the Ropsten Testnet.
 
 <br />
 
