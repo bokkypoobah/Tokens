@@ -8,6 +8,7 @@ A collection of token contracts, and how to deploy these contracts using Remix a
 
 ## Table Of Contents
 
+* [Mainnet Token Contracts](#mainnet-token-contracts)
 * [BitFwd Token](#bitfwd-token)
 * [LEIA Save Princess Leia Peach Rainbow Vomit Cat ICO Token](#leia-save-princess-leia-peach-rainbow-vomit-cat-ico-token)
 * [SEANTest Token On Ropsten](#seantest-token-on-ropsten)
@@ -18,6 +19,14 @@ A collection of token contracts, and how to deploy these contracts using Remix a
 * [Airdropping Tokens](#airdropping-tokens)
 * [Registering Your Token Contract](#registering-your-token-contract)
 * [References](#references)
+
+<br />
+
+<hr />
+
+## Mainnet Token Contracts
+
+See [Mainnet-token-contracts-20180610](Mainnet-token-contracts-20180610) for a list of token contracts, where the addresses are from EtherDelta's token contract list @ June 10 2018, and the associated source code has been scraped from EtherScan's validated source code listing.
 
 <br />
 
