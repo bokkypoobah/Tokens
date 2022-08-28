@@ -1289,7 +1289,7 @@ contract EtherNomin is ExternStateProxyFeeToken {
 
         etherPrice = initialEtherPrice;
         lastPriceUpdate = now;
-        emit PriceUpdated(etherPrice);
+        emit PriceUpdated(initialEtherPrice);
 
         // It should not be possible to transfer to the nomin contract itself.
         frozen[this] = true;
