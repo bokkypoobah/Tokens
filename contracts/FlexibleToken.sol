@@ -129,7 +129,7 @@ contract FlexibleToken is ERC20Interface, Owned {
         decimals = _decimals;
         _totalSupply = _initialSupply;
         balances[owner] = _totalSupply;
-        emit Transfer(address(0), owner, _totalSupply);
+        emit Transfer(address(0), owner, _initialSupply);
     }
     function lock() public onlyOwner {
         require(!locked);
